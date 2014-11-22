@@ -269,9 +269,10 @@ class FileSystem implements DriverInterface
 
             foreach ($data as $key => $value) {
                 $dataString = $this->encode($value);
+                $keyString = var_export($key, true);
                 $storeString .= PHP_EOL;
                 $storeString .= '/* Child Type: ' . gettype($value) . ' */' . PHP_EOL;
-                $storeString .= "\$data['{$key}'] = {$dataString};" . PHP_EOL;
+                $storeString .= "\$data[{$keyString}] = {$dataString};" . PHP_EOL;
             }
         } else {
 
